@@ -8,7 +8,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.WindowState = FormWindowState.Maximized
-        'MessageBox.Show("Welcome, friend! Would you like to load a fish profile?")
+       
         timerDateTime.Enabled = True
     End Sub
 
@@ -22,7 +22,7 @@ Public Class Form1
     'The goal with beenLoaded is to work out the issue of how to treat the gridview when submitting new info to it..might ened to prompt yes/no to add to new form etc.
     Dim beenLoaded As Integer = 0
 
-    'ok lets think about this..... reset button, save aka add to db button, history button (show all data), import file button for loading file, load file on load, create new profile on load which will create the save .txt file in csv format....wheee I'm stupid and smart 
+    'ok lets think about this..... reset button, save aka add to db button, history button (show all data), import file button for loading file, load file on load, create new profile on load which will create the save .txt file in csv format
     Dim tempList As New List(Of String)()
     Dim phList As New List(Of String)()
     Dim gHlist As New List(Of String)()
@@ -69,8 +69,6 @@ Public Class Form1
             For Each cell As DataGridViewCell In row.Cells
                 csv += cell.Value & ","c
             Next
-            'Need to work this out from here, or from the angle of the extra row being processed and being assigned commas in the notepad csv. Or it might not even matter,
-            'lets figure out load first then circle back here. 
             'If row.Cells.ToString IsNot Nothing Then
             'Add new line.
             'If iterationToDeleteLastLine = 2 Then
@@ -215,22 +213,3 @@ Public Class Form1
     'Class end
     ''''''''''
 End Class
-
-
-
-
-
-
-
-'Private Sub temperatureInputBox_TextChanged(sender As Object, e As EventArgs) Handles temperatureInputBox.TextChanged, ghInputBox.TextChanged, khInputBox.TextChanged, phInputBox.TextChanged
-'    ErrorLabel.Text = ""
-'End Sub
-
-'---------------
-'---------------
-'---------------
-'proto a 'sensor' input (similar to loading a file) feature that can then adjust parameters. this will look like a 
-'suggest changes feature I think which would be super cool!
-'-----------------
-'-----------------
-'-----------------

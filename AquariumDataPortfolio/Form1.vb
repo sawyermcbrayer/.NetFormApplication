@@ -22,7 +22,7 @@ Public Class Form1
     'The goal with beenLoaded is to work out the issue of how to treat the gridview when submitting new info to it..might ened to prompt yes/no to add to new form etc.
     Dim beenLoaded As Integer = 0
 
-    'ok lets think about this..... reset button, save aka add to db button, history button (show all data), import file button for loading file, load file on load, create new profile on load which will create the save .txt file in csv format....wheee I'm stupid and smart 
+    'ok lets think about this..... reset button, save aka add to db button, history button (show all data), import file button for loading file, load file on load, create new profile on load which will create the save .txt file in csv format.
     Dim tempList As New List(Of String)()
     Dim phList As New List(Of String)()
     Dim gHlist As New List(Of String)()

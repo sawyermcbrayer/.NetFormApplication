@@ -8,7 +8,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.WindowState = FormWindowState.Maximized
-       
+        'MessageBox.Show("Welcome, friend! Would you like to load a fish profile?")
         timerDateTime.Enabled = True
     End Sub
 
@@ -22,7 +22,7 @@ Public Class Form1
     'The goal with beenLoaded is to work out the issue of how to treat the gridview when submitting new info to it..might ened to prompt yes/no to add to new form etc.
     Dim beenLoaded As Integer = 0
 
-    'ok lets think about this..... reset button, save aka add to db button, history button (show all data), import file button for loading file, load file on load, create new profile on load which will create the save .txt file in csv format
+    'ok lets think about this..... reset button, save aka add to db button, history button (show all data), import file button for loading file, load file on load, create new profile on load which will create the save .txt file in csv format....wheee I'm stupid and smart 
     Dim tempList As New List(Of String)()
     Dim phList As New List(Of String)()
     Dim gHlist As New List(Of String)()
@@ -62,24 +62,46 @@ Public Class Form1
 
         csv += vbCr & vbLf
 
-        Dim iterationToDeleteLastLine As Integer = 0
 
+        Dim iterationToDeleteLastLine As Integer = 0
+        'MsgBox(test)
+        For Each row As DataGridViewRow In DataGridView1.Rows
+
+        Next
+        '-----------------------------------------------------------------------
+
+        'While iterationToDeleteLastLine < (DataGridView1.Rows.Count - 1)
         For Each row As DataGridViewRow In DataGridView1.Rows
             iterationToDeleteLastLine += 1
+
             For Each cell As DataGridViewCell In row.Cells
                 csv += cell.Value & ","c
             Next
-            'If row.Cells.ToString IsNot Nothing Then
-            'Add new line.
-            'If iterationToDeleteLastLine = 2 Then
-            '    Continue For
-            'Else
-            csv += vbCr & vbLf
-            'End If
 
-            'End If
-
+            If iterationToDeleteLastLine < (DataGridView1.Rows.Count - 1) Then
+                csv += vbCr & vbLf
+            End If
         Next
+        'End While
+
+        'Need to work this out from here, or from the angle of the extra row being processed and being assigned commas in the notepad csv. Or it might not even matter,
+        'lets figure out load first then circle back here. 
+        'If row.Cells.ToString IsNot Nothing Then
+        'Add new line.
+        'If iterationToDeleteLastLine = 2 Then
+        '    Continue For
+        'Else
+        'End If
+
+        'End If
+
+
+
+        '!!!!
+        '!!!!
+        'If failed message comes up in testing, ensure the file isnt open in excel!
+        '!!!!!
+        '!!!!
 
         'Exporting to Excel
         Try
@@ -137,7 +159,7 @@ Public Class Form1
                 Loop
             End Using
         Else
-            MessageBox.Show("Error occured: Try again.")
+            MessageBox.Show("Error occurred: Try again.")
         End If
 
     End Sub
